@@ -1,0 +1,26 @@
+{
+  "name": "microsoft-atg_web-sde_spec-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skylocke/microsoft-atg_web-sde_spec-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skylocke/microsoft-atg_web-sde_spec-2/issues"
+  },
+  "homepage": "https://github.com/skylocke/microsoft-atg_web-sde_spec-2#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.5",
+    "morgan": "^1.8.1",
+    "path": "^0.12.7"
+  }
+}
