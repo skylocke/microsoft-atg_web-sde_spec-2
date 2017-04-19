@@ -1,0 +1,7 @@
+<div class="survey-module">
+  <div ng-repeat="(gender, count) in surveyComp.genderRawData">
+    <h2>{{gender.toUpperCase()}}</h2>
+    <h4>{{surveyComp.genderPercentages[gender]}}%</h4>
+    <button class="btn btn-success green-gradient" ng-click="surveyComp.vote(gender)"><span class="fa fa-check"></span> Vote</button>
+  </div>
+</div>

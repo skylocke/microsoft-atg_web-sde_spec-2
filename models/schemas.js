@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
 
-var genderSchema = new mongoose.Schema({
+var demographicsSchema = new mongoose.Schema({
   name: { type: String, index: true },
-  count: { type: Number, default: 0 }
+  types: {}
 }, {
-  collection: 'Genders'
+  collection: 'Demographics'
 });
 
-var Gender = mongoose.model('Gender', genderSchema);
+var Demographic = mongoose.model('Demographic', demographicsSchema);
 
 module.exports = {
-  Gender: Gender
+  Demographic: Demographic
 }
