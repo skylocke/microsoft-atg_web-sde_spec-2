@@ -7,26 +7,32 @@ var demogList = {
 };
 
 for (var key in demogList) {
-  var typeList = {};
   demogList[key].forEach(function(value) {
-    typeList[value] = 0;
-  });
+    var demogSchema = {
+      category: key,
+      label: value,
+      count: 0
+    };
 
-  models.Demographic.findOne({
-    category: key
-  }, function(err, category) {
-    console.log("err: ", err);
-    console.log("category: ", category);
+    models.Demographic.findOne({
+      category: key,
+      label: value,
+    }, function(err, label) {
+      console.log("err: ", err);
+      console.log("label: ", label);
 
-    // if the category does not exist yet
-    if (!category) {
-      console.log("going to create new category");
-      models.Demographic.create({
-        category: key,
-        types: typeList
-      });
-    } else {
-      console.log(key, "already exists");
-    }
+      // if label/group does not exist yet
+      if (!label) {
+        console.log("going to create new label");
+        models.Demographic.create({
+          category: key,
+          label: value,
+          count: 0
+        });
+      } else {
+        console.log(key, "already exists");
+      }
+    });
+
   });
 }

@@ -18,7 +18,7 @@ router.route('/')
 
 router.route('/:category')
   .get(function(req, res) {
-    models.Demographic.findOne({
+    models.Demographic.find({
       category: req.params.category
     }, function(err, results) {
       console.log('err: ', err, !!err);
@@ -30,32 +30,15 @@ router.route('/:category')
   })
   .put(function(req, res) {
     console.log(req.body);
-    // models.Demographic.findOne({
-    //   category: req.params.category
-    // }, function(err, demographic) {
-    //   console.log('err: ', err, !!err);
-    //   console.log('demographic: ', demographic);
-    //   if (err) {
-    //     return res.status(500).send(err);
-    //   } else {
-    //     var tempTypes = demographic.types;
-    //     tempTypes[req.body.type]++;
-    //     demographic.types = tempTypes;
-    //     console.log(demographic)
-    //     demographic.save();
-    //   }
-    // });
 
-    var incrementFieldString = "types." + req.body.type;
-    var incrementObj = {};
-    incrementObj[incrementFieldString] = 1;
     models.Demographic.findOneAndUpdate(
-      { category: req.params.category },
-      { $inc: incrementObj },
+      { category: req.params.category, label: req.body.label },
+      { $inc: { count: 1 } },
       { upsert: true, new: true },
-      function(err, data) {
+      function(err, results) {
         console.log('err: ', err);
-        console.log('data: ', data);
+        console.log('results: ', results);
+        res.send(results);
       }
     )
   });

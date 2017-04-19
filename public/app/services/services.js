@@ -22,11 +22,11 @@ angular.module('App')
       });;
     },
 
-    tallyDemographics: function(category, type) {
+    tallyDemographics: function(category, label) {
       var req = {
         url: '/api/demographics/' + category,
         method: 'PUT',
-        data: { type: type }
+        data: { label: label }
       }
 
       return $http(req).then(function success(res) {
