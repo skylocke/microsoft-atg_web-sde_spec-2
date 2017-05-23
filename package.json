@@ -23,5 +23,8 @@
     "mongoose": "^4.9.5",
     "morgan": "^1.8.1",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }
